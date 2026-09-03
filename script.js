@@ -1,6 +1,27 @@
-// ===================== DATOS DEL CATÁLOGO =====================
-// PRECIOS DE EJEMPLO: Confirmar carta real con el cliente antes de la propuesta final.
-// Categorías tomadas del menú real fotografiado en el local (pizarra de bebidas) y de la vitrina de pastelería.
+/* ===========================================================
+   DULCES MOMENTOS — script.js (JavaScript Vanilla, sin librerías)
+=========================================================== */
+
+/* ===================== SPA: NAVEGACIÓN POR PESTAÑAS ===================== */
+const panels = document.querySelectorAll('.tab-panel');
+const tabButtons = document.querySelectorAll('[data-tab]');
+const navToggle = document.getElementById('nav-toggle');
+const tabsNav = document.getElementById('tabs-nav');
+
+function showTab(name){
+  panels.forEach(p => p.classList.toggle('active', p.dataset.panel === name));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+  tabsNav.classList.remove('open');
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+tabButtons.forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showTab(el.dataset.tab); }));
+navToggle.addEventListener('click', () => tabsNav.classList.toggle('open'));
+showTab('inicio');
+
+/* ===================== DATOS DEL CATÁLOGO =====================
+   PRECIOS DE EJEMPLO: Confirmar carta real con el cliente antes de
+   la propuesta final. Categorías tomadas del menú real fotografiado
+   en el local (pizarra de bebidas) y de la vitrina de pastelería. */
 const CATEGORIES = ["Todos","Pasteles y Tortas","Postres individuales","Bebidas frías","Bebidas calientes","Opciones saladas"];
 
 const PRODUCTS = [
@@ -24,63 +45,78 @@ const money = n => "$" + n.toLocaleString("es-CL");
 function renderFilters(){
   const wrap = document.getElementById("catFilters");
   wrap.innerHTML = CATEGORIES.map(c =>
-    `<button class="cat-pill ${c===activeCat?'active':''}" onclick="setCategory('${c}')">${c}</button>`
+    `<button class="cat-pill ${c===activeCat?'active':''}" data-cat="${c}">${c}</button>`
   ).join("");
+  wrap.querySelectorAll('.cat-pill').forEach(btn => {
+    btn.addEventListener('click', () => { activeCat = btn.dataset.cat; renderFilters(); renderProducts(); });
+  });
 }
-function setCategory(c){ activeCat = c; renderFilters(); renderProducts(); }
 
 function renderProducts(){
   const grid = document.getElementById("productGrid");
   const list = activeCat==="Todos" ? PRODUCTS : PRODUCTS.filter(p=>p.cat===activeCat);
   grid.innerHTML = list.map(p => `
-    <div class="product-card" onclick="openModal(${p.id})">
-      <div class="aspect-[4/5] overflow-hidden rounded-sm mb-3">
-        <img src="${p.photo}" alt="${p.name}" class="w-full h-full object-cover">
+    <button type="button" class="product-card" data-id="${p.id}">
+      <div class="product-photo"><img src="${p.photo}" alt="${p.name}"></div>
+      <div class="product-row">
+        <h4>${p.name}</h4>
+        <span class="product-price">${money(p.price)}</span>
       </div>
-      <div class="flex items-start justify-between gap-2">
-        <h4 class="text-sm leading-snug">${p.name}</h4>
-        <span class="text-sm font-medium whitespace-nowrap">${money(p.price)}</span>
-      </div>
-    </div>
+    </button>
   `).join("");
+  grid.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('click', () => openModal(Number(card.dataset.id)));
+  });
 }
+renderFilters();
+renderProducts();
 
+/* ===================== MODAL DE PRODUCTO ===================== */
+const modalOverlay = document.getElementById("productModal");
 function openModal(id){
   const p = PRODUCTS.find(x=>x.id===id);
   document.getElementById("modalPhoto").style.backgroundImage = `url('${p.photo}')`;
   document.getElementById("modalName").textContent = p.name;
   document.getElementById("modalDesc").textContent = p.desc;
   document.getElementById("modalPrice").textContent = money(p.price);
-  document.getElementById("productModal").classList.add("open");
+  modalOverlay.classList.add("open");
 }
-function closeModal(){ document.getElementById("productModal").classList.remove("open"); }
+function closeModal(){ modalOverlay.classList.remove("open"); }
+document.getElementById('modalClose').addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
 
-// ===================== INDICADOR ABIERTO/CERRADO (horario real) =====================
-// Lunes(1) a Jueves(4): 09:00–21:30 | Viernes(5) y Sábado(6): 10:00–21:30 | Domingo(0): 10:00–21:00
+/* ===================== HORARIO — ABIERTO/CERRADO + LISTA POR DÍA =====================
+   Lunes(1) a Jueves(4): 09:00–21:30 | Viernes(5) y Sábado(6): 10:00–21:30 | Domingo(0): 10:00–21:00 */
+const DIAS = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
 function getScheduleForDay(day){
   if(day === 0) return {open:10, close:21};
   if(day === 5 || day === 6) return {open:10, close:21.5};
   return {open:9, close:21.5}; // Lunes a Jueves
 }
+const fmtHour = h => Math.floor(h) + ':' + (h % 1 ? '30' : '00');
+
 function updateOpenStatus(){
   const now = new Date();
   const day = now.getDay();
   const hour = now.getHours() + now.getMinutes()/60;
   const { open, close } = getScheduleForDay(day);
   const isOpen = hour >= open && hour < close;
-  const dot = document.getElementById("statusDot");
-  const text = document.getElementById("statusText");
-  const fmt = h => (Math.floor(h)+":"+(h%1 ? "30" : "00"));
-  if(isOpen){
-    dot.className = "status-dot bg-emerald-400";
-    text.textContent = `Abierto ahora · cierra a las ${fmt(close)}`;
-  } else {
-    dot.className = "status-dot bg-red-400";
-    text.textContent = `Cerrado ahora · abre a las ${fmt(open)}`;
-  }
+  const dot = document.getElementById('statusDot');
+  const text = document.getElementById('statusText');
+  dot.className = 'status-dot ' + (isOpen ? 'open' : 'closed');
+  text.textContent = isOpen
+    ? `Abierto ahora · cierra a las ${fmtHour(close)}`
+    : `Cerrado ahora · abre a las ${fmtHour(open)}`;
 }
 updateOpenStatus();
+setInterval(updateOpenStatus, 60000);
 
-// ===================== INIT =====================
-renderFilters();
-renderProducts();
+function renderHoursList(){
+  const today = new Date().getDay();
+  const list = document.getElementById('hours-list');
+  list.innerHTML = DIAS.map((d,i) => {
+    const s = getScheduleForDay(i);
+    return `<div class="row${i===today?' today':''}"><span>${d}</span><span>${fmtHour(s.open)} – ${fmtHour(s.close)}</span></div>`;
+  }).join('');
+}
+renderHoursList();
