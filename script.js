@@ -86,12 +86,13 @@ document.getElementById('modalClose').addEventListener('click', closeModal);
 modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
 
 /* ===================== HORARIO — ABIERTO/CERRADO + LISTA POR DÍA =====================
-   Lunes(1) a Jueves(4): 09:00–21:30 | Viernes(5) y Sábado(6): 10:00–21:30 | Domingo(0): 10:00–21:00 */
+   Fuente: bio de Instagram (@dulces.momentos.caffe) — "Lun a viernes 9:00 a 21:30h
+   Sáb y dom 10:00 a 21:30h".
+   Lunes(1) a Viernes(5): 09:00–21:30 | Sábado(6) y Domingo(0): 10:00–21:30 */
 const DIAS = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
 function getScheduleForDay(day){
-  if(day === 0) return {open:10, close:21};
-  if(day === 5 || day === 6) return {open:10, close:21.5};
-  return {open:9, close:21.5}; // Lunes a Jueves
+  if(day === 0 || day === 6) return {open:10, close:21.5};
+  return {open:9, close:21.5}; // Lunes a Viernes
 }
 const fmtHour = h => Math.floor(h) + ':' + (h % 1 ? '30' : '00');
 
