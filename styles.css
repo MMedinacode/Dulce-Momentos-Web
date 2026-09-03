@@ -1,0 +1,106 @@
+  :root{
+    --bg-base:#F8F2E9;       /* fondo cálido, del interior real */
+    --brand-brown:#4A2A18;   /* café oscuro extraído del logo/producto */
+    --ink:#2A1810;           /* texto principal, casi negro cálido */
+    --iron:#1C1C1C;          /* sillas metálicas negras del local */
+    --bloom:#C97C8B;         /* rosado del muro floral real */
+    --gold:#B98A3E;          /* dorado del mostrador de pastelería */
+    --paper:#FFFDF9;
+    --header-h:80px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-base);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    padding-bottom:0;
+  }
+  .font-display{font-family:'Fraunces', serif;}
+  h1,h2,h3,.serif{font-family:'Fraunces', serif;}
+  .tracking-tight-serif{letter-spacing:-0.01em;}
+
+  /* Evita que los títulos queden tapados por el header sticky al hacer scroll a un ancla */
+  section[id]{ scroll-margin-top: calc(var(--header-h) + 14px); }
+
+  .ring-signature{ position:relative; }
+  .ring-signature::before{
+    content:""; position:absolute; inset:-14px;
+    border:1px solid var(--brand-brown); border-radius:9999px; opacity:0.35;
+  }
+
+  .divider-mark{
+    width:34px;height:34px;border:1px solid var(--brand-brown);border-radius:9999px;
+    display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .divider-mark svg{width:14px;height:14px;}
+
+  header{
+    background-color:rgba(248,242,233,0.94);
+    backdrop-filter:blur(8px);
+    box-shadow:0 1px 0 rgba(42,24,16,0.08);
+  }
+
+  .btn-primary{
+    background:var(--brand-brown); color:var(--paper);
+    padding:0.85rem 1.75rem; border-radius:9999px;
+    font-family:'Work Sans',sans-serif; font-size:0.875rem; letter-spacing:.02em;
+    transition:transform .25s ease, background-color .25s ease;
+    display:inline-flex; align-items:center; gap:.5rem;
+  }
+  .btn-primary:hover{background:#341c0f; transform:translateY(-1px);}
+
+  .btn-outline{
+    border:1px solid var(--brand-brown); color:var(--brand-brown);
+    padding:0.8rem 1.65rem; border-radius:9999px; font-size:0.875rem;
+    transition:background-color .25s ease, color .25s ease;
+    display:inline-flex; align-items:center; gap:.5rem;
+  }
+  .btn-outline:hover{background:var(--brand-brown); color:var(--paper);}
+
+  .cat-pill{
+    border:1px solid rgba(42,24,16,0.25);
+    padding:.5rem 1.1rem; border-radius:9999px; font-size:.8rem;
+    background:transparent; color:var(--ink); cursor:pointer;
+    transition:all .2s ease; white-space:nowrap;
+  }
+  .cat-pill.active, .cat-pill:hover{
+    background:var(--brand-brown); border-color:var(--brand-brown); color:var(--paper);
+  }
+
+  .product-card{cursor:pointer;}
+
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(20,12,8,0.55);
+    display:flex; align-items:flex-end; justify-content:center;
+    opacity:0; pointer-events:none; transition:opacity .3s ease; z-index:60;
+  }
+  @media(min-width:768px){ .modal-overlay{align-items:center;} }
+  .modal-overlay.open{opacity:1; pointer-events:auto;}
+  .modal-panel{
+    background:var(--paper); width:100%; max-width:480px;
+    border-radius:24px 24px 0 0; transform:translateY(30px); transition:transform .35s ease;
+    max-height:88vh; overflow-y:auto;
+  }
+  @media(min-width:768px){ .modal-panel{border-radius:24px;} }
+  .modal-overlay.open .modal-panel{transform:translateY(0);}
+
+  .ig-post{aspect-ratio:1/1; background:linear-gradient(135deg,#F0E1CE,#E3C9A8);}
+
+  ::-webkit-scrollbar{width:6px;}
+  ::-webkit-scrollbar-thumb{background:rgba(42,24,16,.25); border-radius:9999px;}
+
+  .status-dot{width:8px;height:8px;border-radius:9999px;display:inline-block;}
+
+  /* Barra flotante inferior — solo Instagram y Cómo llegar, solo en móvil */
+  #mobileBar{
+    position:fixed; left:0; right:0; bottom:0; z-index:55;
+    background:var(--paper);
+    box-shadow:0 -6px 24px rgba(20,12,8,0.12);
+    padding:.65rem 1rem calc(.65rem + env(safe-area-inset-bottom));
+    display:flex; gap:.75rem;
+  }
+  @media(min-width:1024px){ #mobileBar{display:none;} }
+  body{ padding-bottom:78px; }
+  @media(min-width:1024px){ body{ padding-bottom:0; } }

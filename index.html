@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dulces Momentos Caffé — El Olimpo, Maipú</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased">
+
+<!-- ===================== HEADER STICKY ===================== -->
+<header id="siteHeader" class="fixed top-0 left-0 right-0 z-50" style="height:var(--header-h);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 h-full flex items-center justify-between">
+    <a href="#inicio" class="flex items-center gap-3">
+      <!-- LOGO OFICIAL: reemplazar src por el archivo real del logo entregado por el cliente -->
+      <img src="LOGO-DULCES-MOMENTOS.png" alt="Dulces Momentos Caffé" class="w-12 h-12 rounded-full object-cover border border-[var(--brand-brown)]/30"
+           onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+      <div id="logoFallback" style="display:none;" class="w-12 h-12 rounded-full border border-[var(--brand-brown)]/40 items-center justify-center text-[10px] text-center leading-tight font-display">DM<br>Caffé</div>
+      <span class="font-display text-lg tracking-tight-serif hidden sm:block">Dulces Momentos</span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-9 text-[0.85rem]">
+      <a href="#inicio" class="hover:opacity-60 transition">Inicio</a>
+      <a href="#historia" class="hover:opacity-60 transition">Nuestra Historia</a>
+      <a href="#carta" class="hover:opacity-60 transition">Carta</a>
+      <a href="#resenas" class="hover:opacity-60 transition">Reseñas</a>
+      <a href="#ubicacion" class="hover:opacity-60 transition">Ubicación</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a href="https://instagram.com/dulcesmomentoscaffe" target="_blank" rel="noopener" class="btn-outline !py-2 !px-4 text-[0.8rem]">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
+        <span class="hidden sm:inline">Instagram</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="inicio" class="relative h-[92vh] min-h-[560px] w-full flex items-end">
+  <!-- Fotografía editorial: mostrador de pastelería real del local (imagen provista por el cliente) -->
+  <div class="absolute inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop"
+         alt="Vitrina de pastelería Dulces Momentos" class="w-full h-full object-cover">
+    <!-- ⚠️ Reemplazar por la fotografía real y 100% profesional del mostrador de pasteles/macarons del local -->
+    <div class="absolute inset-0" style="background:linear-gradient(0deg, rgba(30,17,10,0.75) 0%, rgba(30,17,10,0.15) 55%, rgba(30,17,10,0.25) 100%);"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 pb-16 md:pb-24 w-full text-[#FBF4E8]">
+    <div class="flex items-center gap-3 mb-6">
+      <span id="statusDot" class="status-dot bg-emerald-400"></span>
+      <span id="statusText" class="text-[0.78rem] tracking-wide opacity-90"></span>
+    </div>
+    <h1 class="font-display text-[13vw] leading-[0.92] sm:text-6xl md:text-7xl lg:text-8xl tracking-tight-serif max-w-4xl">
+      Momentos dulces,<br><span class="italic font-normal">hechos para quedarse.</span>
+    </h1>
+    <p class="mt-7 max-w-md text-[0.95rem] leading-relaxed opacity-90 font-light">
+      Pastelería artesanal y café de especialidad en el sector de El Olimpo, Maipú — un rincón cálido para detenerse un rato, o el que haga falta.
+    </p>
+    <div class="mt-9 flex flex-wrap gap-4">
+      <a href="#carta" class="btn-primary">Ver la carta
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#ubicacion" class="btn-outline !border-[#FBF4E8]/60 !text-[#FBF4E8] hover:!bg-[#FBF4E8] hover:!text-[var(--brand-brown)]">Cómo llegar</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BLOQUE DESTACADO: HORARIO E INSTAGRAM ===================== -->
+<section class="border-b border-[var(--brand-brown)]/10" style="background:var(--paper);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
+    <div class="lg:col-span-3 grid sm:grid-cols-3 gap-6 text-sm">
+      <div>
+        <div class="opacity-55 text-xs mb-1.5">Lunes a Jueves</div>
+        <div class="font-display text-lg">09:00 – 21:30</div>
+      </div>
+      <div>
+        <div class="opacity-55 text-xs mb-1.5">Viernes y Sábado</div>
+        <div class="font-display text-lg">10:00 – 21:30</div>
+      </div>
+      <div>
+        <div class="opacity-55 text-xs mb-1.5">Domingo</div>
+        <div class="font-display text-lg">10:00 – 21:00</div>
+      </div>
+    </div>
+    <div class="flex sm:justify-end">
+      <a href="https://instagram.com/dulcesmomentoscaffe" target="_blank" rel="noopener" class="btn-primary w-full sm:w-auto justify-center">
+        Escríbenos por Instagram
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PILARES / CONCEPTO ===================== -->
+<section id="concepto" class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
+  <div class="flex items-center gap-4 mb-14">
+    <span class="divider-mark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-brown)" stroke-width="1.4"><path d="M8 3v4M16 3v4M4 8h16M6 8v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/></svg></span>
+    <h2 class="font-display text-3xl md:text-4xl tracking-tight-serif">Lo que somos</h2>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-x-10 gap-y-16">
+    <div>
+      <div class="w-11 h-11 mb-6 flex items-center justify-center">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--brand-brown)" stroke-width="1.3"><path d="M3 10h14l-1 9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2l-1-9Z"/><path d="M7 10V6a3 3 0 0 1 6 0v4"/><path d="M18 8c2 1 2.5 3 1.5 5"/></svg>
+      </div>
+      <h3 class="font-display text-xl mb-3">Repostería propia</h3>
+      <p class="text-sm leading-relaxed opacity-80">Tortas, macarons y postres individuales preparados a diario, expuestos en vitrina como el verdadero centro de la casa.</p>
+    </div>
+    <div>
+      <div class="w-11 h-11 mb-6 flex items-center justify-center">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--brand-brown)" stroke-width="1.3"><path d="M6 3v3M10 3v3M14 3v3M5 9h10l-1 3a4 4 0 0 1-4 3h0a4 4 0 0 1-4-3L5 9Z"/><path d="M4 21h12"/></svg>
+      </div>
+      <h3 class="font-display text-xl mb-3">Bebidas frías y calientes</h3>
+      <p class="text-sm leading-relaxed opacity-80">Frappuccinos, smoothies, piña colada, matcha latte y milkshakes conviven con el café clásico en la misma barra.</p>
+    </div>
+    <div>
+      <div class="w-11 h-11 mb-6 flex items-center justify-center">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--brand-brown)" stroke-width="1.3"><path d="M4 21c1-6 4-9 8-9s7 3 8 9"/><circle cx="12" cy="6" r="3"/></svg>
+      </div>
+      <h3 class="font-display text-xl mb-3">Un rincón para quedarse</h3>
+      <p class="text-sm leading-relaxed opacity-80">Muros de flores, luces cálidas y mesas de fierro negro: un espacio pensado para juntarse con calma, no para el paso rápido.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERÍA AMBIENTE ===================== -->
+<section class="max-w-7xl mx-auto px-6 md:px-10 pb-24 md:pb-32">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+    <div class="col-span-2 row-span-2 aspect-square md:aspect-auto md:h-full min-h-[280px] overflow-hidden rounded-sm">
+      <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop" alt="Interior del local" class="w-full h-full object-cover">
+      <!-- ⚠️ Reemplazar por foto real del interior con enredaderas y mesas de fierro negro -->
+    </div>
+    <div class="aspect-square overflow-hidden rounded-sm">
+      <img src="https://images.unsplash.com/photo-1517686748843-bb360cee5e17?q=80&w=800&auto=format&fit=crop" alt="Muro floral" class="w-full h-full object-cover">
+      <!-- ⚠️ Reemplazar por foto real del muro de flores rosadas/lilas -->
+    </div>
+    <div class="aspect-square overflow-hidden rounded-sm">
+      <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?q=80&w=800&auto=format&fit=crop" alt="Pastelería" class="w-full h-full object-cover">
+      <!-- ⚠️ Reemplazar por foto real de la vitrina de pasteles y macarons -->
+    </div>
+    <div class="col-span-2 aspect-video md:aspect-square overflow-hidden rounded-sm">
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop" alt="Detalle de mesa" class="w-full h-full object-cover">
+      <!-- ⚠️ Reemplazar por foto real de mesa junto al muro floral -->
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CARTA ===================== -->
+<section id="carta" class="py-24 md:py-32" style="background:var(--paper);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-4">
+      <div>
+        <div class="flex items-center gap-4 mb-5">
+          <span class="divider-mark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-brown)" stroke-width="1.4"><path d="M4 19h16M6 19V7l6-4 6 4v12"/></svg></span>
+          <h2 class="font-display text-3xl md:text-4xl tracking-tight-serif">Nuestra carta</h2>
+        </div>
+        <p class="text-sm opacity-70 max-w-md">Un vistazo a lo que preparamos cada día: café, repostería dulce y algunas opciones saladas.</p>
+      </div>
+    </div>
+    <!-- PRECIOS DE EJEMPLO: Confirmar carta real y precios exactos con el cliente antes de la propuesta final -->
+    <p class="text-[0.7rem] uppercase tracking-wide opacity-50 mb-10">* Productos y precios referenciales, pendientes de confirmar con el local</p>
+
+    <div id="catFilters" class="flex gap-3 overflow-x-auto pb-2 mb-10"></div>
+    <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10"></div>
+  </div>
+</section>
+
+<!-- ===================== HISTORIA ===================== -->
+<section id="historia" class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
+  <div class="grid md:grid-cols-2 gap-14 items-center">
+    <div class="order-2 md:order-1 relative">
+      <div class="ring-signature rounded-full overflow-hidden aspect-square max-w-md mx-auto">
+        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=900&auto=format&fit=crop" alt="Nuestro café" class="w-full h-full object-cover">
+        <!-- ⚠️ Reemplazar por foto real del equipo o de un producto insignia del local -->
+      </div>
+    </div>
+    <div class="order-1 md:order-2">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="divider-mark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-brown)" stroke-width="1.4"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9Z"/></svg></span>
+        <h2 class="font-display text-3xl md:text-4xl tracking-tight-serif">Nuestra historia</h2>
+      </div>
+      <!-- Bio inferida a partir del material visual y del nombre de marca; reemplazar por la bio real de Instagram cuando se confirme -->
+      <p class="text-[0.95rem] leading-relaxed opacity-85 mb-5">
+        Dulces Momentos nació como un lugar pensado para lo simple: una torta bien hecha, un café con calma y una mesa donde quedarse un rato más de lo planeado. El osito de nuestra taza es justamente eso — un recordatorio de que los mejores momentos son los pequeños.
+      </p>
+      <p class="text-[0.95rem] leading-relaxed opacity-85">
+        Cada rincón del local, desde el muro de flores hasta las mesas de fierro negro, fue armado a mano por quienes hoy los reciben en la puerta, en pleno sector de El Olimpo.
+      </p>
+      <div class="flex flex-wrap gap-2.5 mt-7">
+        <span class="text-[0.68rem] uppercase tracking-wide border border-[var(--brand-brown)]/25 rounded-full px-4 py-2">Pastelería Artesanal</span>
+        <span class="text-[0.68rem] uppercase tracking-wide border border-[var(--brand-brown)]/25 rounded-full px-4 py-2">Café de Especialidad</span>
+        <span class="text-[0.68rem] uppercase tracking-wide border border-[var(--brand-brown)]/25 rounded-full px-4 py-2">Ambiente Acogedor</span>
+      </div>
+      <a href="#resenas" class="inline-flex items-center gap-2 mt-8 text-sm border-b border-[var(--brand-brown)] pb-0.5">
+        Ver lo que dicen nuestros clientes
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESEÑAS ===================== -->
+<section id="resenas" class="py-24 md:py-32" style="background:var(--bg-base);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="flex items-center gap-4 mb-14">
+      <span class="divider-mark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-brown)" stroke-width="1.4"><path d="m12 2 2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7L6 21.1l1.6-7L2.2 9.3l7.1-.7L12 2Z"/></svg></span>
+      <h2 class="font-display text-3xl md:text-4xl tracking-tight-serif">Lo que dicen de nosotros</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-[var(--paper)] p-8 rounded-sm">
+        <div class="flex gap-1 mb-5 text-[var(--gold)]">★★★★★</div>
+        <p class="text-sm leading-relaxed opacity-85 mb-6">"Muy rico todo en Dulces Momentos, de verdad me sorprendió. El jugo estaba perfecto con el sándwich, se nota que son frescos. El lugar es súper agradable, tranquilo y bonito, ideal para ir a relajarse un rato o juntarse con alguien."</p>
+        <div class="text-sm font-medium">Luis Bustamante</div>
+        <div class="text-xs opacity-55">Reseña de Google · hace 5 meses</div>
+      </div>
+      <div class="bg-[var(--paper)] p-8 rounded-sm">
+        <div class="flex gap-1 mb-5 text-[var(--gold)]">★★★★★</div>
+        <p class="text-sm leading-relaxed opacity-85 mb-6">"Es un excelente lugar muy acogedor, agradable el personal, lindo, limpio y precio muy accesible. Mi familia y yo quedamos encantados."</p>
+        <div class="text-sm font-medium">Francisca Hernandez</div>
+        <div class="text-xs opacity-55">Local Guide · Google Maps · hace 3 meses</div>
+      </div>
+      <div class="bg-transparent border border-dashed border-[var(--brand-brown)]/35 p-8 rounded-sm flex flex-col justify-between">
+        <div>
+          <div class="flex gap-1 mb-5 opacity-30 text-[var(--gold)]">★★★★★</div>
+          <!-- Solo se encontraron 2 reseñas reales en el material provisto; se deja este espacio como llamado a la acción en vez de inventar una tercera reseña -->
+          <p class="text-sm leading-relaxed opacity-70 mb-6">Todavía nos queda espacio para una historia más. Si ya nos visitaste, cuéntanos cómo te fue.</p>
+        </div>
+        <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="text-sm underline underline-offset-4">Dejar una reseña →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INSTAGRAM DESTACADO ===================== -->
+<section class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
+  <div class="rounded-sm overflow-hidden" style="background:var(--brand-brown);">
+    <div class="grid md:grid-cols-2 items-center">
+      <div class="p-10 md:p-16 text-[#FBF4E8]">
+        <span class="text-xs tracking-wide opacity-70">@dulcesmomentoscaffe</span>
+        <h2 class="font-display text-3xl md:text-4xl mt-4 mb-5 tracking-tight-serif">Nuestro día a día vive en Instagram</h2>
+        <p class="text-sm leading-relaxed opacity-85 mb-8 max-w-sm">Vitrinas nuevas, rincones del local y clientes felices — todo se publica primero ahí. Es nuestro canal principal, síguenos para no perderte nada.</p>
+        <a href="https://instagram.com/dulcesmomentoscaffe" target="_blank" rel="noopener" class="btn-primary !bg-[#FBF4E8] !text-[var(--brand-brown)] hover:!bg-white">
+          Seguir en Instagram
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+        </a>
+      </div>
+      <div class="grid grid-cols-3">
+        <div class="ig-post" style="background-image:url('https://images.unsplash.com/photo-1488900128323-21503983a07e?q=80&w=500&auto=format&fit=crop');background-size:cover;"></div>
+        <div class="ig-post" style="background-image:url('https://images.unsplash.com/photo-1517686748843-bb360cee5e17?q=80&w=500&auto=format&fit=crop');background-size:cover;"></div>
+        <div class="ig-post" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=500&auto=format&fit=crop');background-size:cover;"></div>
+        <div class="ig-post" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=500&auto=format&fit=crop');background-size:cover;"></div>
+        <div class="ig-post" style="background-image:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=500&auto=format&fit=crop');background-size:cover;"></div>
+        <div class="ig-post" style="background-image:url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=500&auto=format&fit=crop');background-size:cover;"></div>
+        <!-- ⚠️ Reemplazar las 6 miniaturas por capturas reales del feed de Instagram del local -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== UBICACIÓN ===================== -->
+<section id="ubicacion" class="py-24 md:py-32" style="background:var(--paper);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-14">
+    <div>
+      <div class="flex items-center gap-4 mb-8">
+        <span class="divider-mark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-brown)" stroke-width="1.4"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg></span>
+        <h2 class="font-display text-3xl md:text-4xl tracking-tight-serif">Ubicación</h2>
+      </div>
+      <dl class="space-y-6 text-sm">
+        <div>
+          <dt class="opacity-55 mb-1">Dirección</dt>
+          <!-- No se encontró el número exacto de Avenida Olimpo; reemplazar por la dirección completa confirmada -->
+          <dd class="text-base">Avenida Olimpo, sector El Olimpo — Maipú <span class="opacity-50">(confirmar número exacto)</span></dd>
+        </div>
+        <div>
+          <dt class="opacity-55 mb-1">Horario de atención</dt>
+          <dd class="text-base space-y-0.5">
+            <div>Lunes a Jueves: 09:00 – 21:30 hrs</div>
+            <div>Viernes y Sábado: 10:00 – 21:30 hrs</div>
+            <div>Domingo: 10:00 – 21:00 hrs</div>
+          </dd>
+        </div>
+        <div>
+          <dt class="opacity-55 mb-1">Contacto</dt>
+          <dd class="text-base">
+            <a href="https://instagram.com/dulcesmomentoscaffe" target="_blank" rel="noopener" class="underline underline-offset-4">@dulcesmomentoscaffe</a>
+            <span class="opacity-50 block text-xs mt-1">Por ahora sin línea telefónica — Instagram es el canal de contacto principal.</span>
+          </dd>
+        </div>
+      </dl>
+      <a id="comoLlegarBtn" href="https://www.google.com/maps/dir/?api=1&destination=Dulces+Momentos+Avenida+Olimpo+Maipu+Chile" target="_blank" rel="noopener" class="btn-primary mt-9">
+        Cómo llegar
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="aspect-[4/3] md:aspect-auto rounded-sm overflow-hidden min-h-[320px]">
+      <!-- Mapa embebido de Google Maps sin API key, centrado en Avenida Olimpo, Maipú, zoom cercano de barrio -->
+      <!-- Reemplazar el término de búsqueda por la dirección exacta una vez confirmada con el cliente -->
+      <iframe
+        src="https://www.google.com/maps?q=Avenida+Olimpo,+Maip%C3%BA,+Regi%C3%B3n+Metropolitana,+Chile&z=17&output=embed"
+        width="100%" height="100%" style="border:0; filter:none;" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="Mapa de Dulces Momentos, Avenida Olimpo, Maipú">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:var(--ink); color:var(--bg-base);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-16 grid md:grid-cols-3 gap-10">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img src="LOGO-DULCES-MOMENTOS.png" alt="Dulces Momentos Caffé" class="w-10 h-10 rounded-full object-cover border border-white/20"
+             onerror="this.style.display='none'; document.getElementById('logoFallbackFooter').style.display='flex';">
+        <div id="logoFallbackFooter" style="display:none;" class="w-10 h-10 rounded-full border border-white/25 items-center justify-center text-[9px] text-center leading-tight font-display">DM<br>Caffé</div>
+        <span class="font-display text-lg">Dulces Momentos</span>
+      </div>
+      <p class="text-sm opacity-60 max-w-xs">Pastelería y café de barrio en El Olimpo, Maipú. Prototipo beta preparado para revisión del cliente.</p>
+    </div>
+    <div class="text-sm opacity-75 space-y-2">
+      <a href="#inicio" class="block hover:opacity-100">Inicio</a>
+      <a href="#historia" class="block hover:opacity-100">Nuestra Historia</a>
+      <a href="#carta" class="block hover:opacity-100">Carta</a>
+      <a href="#resenas" class="block hover:opacity-100">Reseñas</a>
+      <a href="#ubicacion" class="block hover:opacity-100">Ubicación</a>
+    </div>
+    <div class="text-sm opacity-75 space-y-3">
+      <a href="https://instagram.com/dulcesmomentoscaffe" target="_blank" rel="noopener" class="flex items-center gap-2 hover:opacity-100">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+        @dulcesmomentoscaffe
+      </a>
+      <span class="block opacity-50 text-xs">Canal de contacto principal — sin línea telefónica por el momento.</span>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-5 text-center text-xs opacity-40">Prototipo generado para propuesta comercial · no representa el sitio final</div>
+</footer>
+
+<!-- ===================== BARRA FLOTANTE MÓVIL ===================== -->
+<div id="mobileBar">
+  <a href="https://instagram.com/dulcesmomentoscaffe" target="_blank" rel="noopener" class="btn-outline flex-1 justify-center !py-3">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+    Instagram
+  </a>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=Dulces+Momentos+Avenida+Olimpo+Maipu+Chile" target="_blank" rel="noopener" class="btn-primary flex-1 justify-center !py-3">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+    Cómo llegar
+  </a>
+</div>
+
+<!-- ===================== MODAL DE PRODUCTO ===================== -->
+<div id="productModal" class="modal-overlay" onclick="if(event.target===this) closeModal()">
+  <div class="modal-panel">
+    <div id="modalPhoto" class="aspect-[4/3] w-full bg-cover bg-center"></div>
+    <div class="p-7">
+      <div class="flex items-start justify-between gap-4 mb-2">
+        <h3 id="modalName" class="font-display text-2xl"></h3>
+        <button onclick="closeModal()" class="opacity-50 hover:opacity-100 -mt-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
+      <p id="modalDesc" class="text-sm opacity-70 leading-relaxed mb-5"></p>
+      <div class="flex items-center justify-between gap-4">
+        <span id="modalPrice" class="font-display text-xl"></span>
+        <a href="https://instagram.com/dulcesmomentoscaffe" target="_blank" rel="noopener" class="btn-primary text-sm whitespace-nowrap">Consultar por Instagram</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
