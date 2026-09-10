@@ -78,7 +78,10 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
 .tab-btn.active::after{ width:100%; }
 
 .header-actions{ display:flex; align-items:center; gap:14px; }
-.nav-toggle{ display:none; flex-direction:column; gap:5px; width:24px; }
+.nav-toggle{ display:none; flex-direction:column; justify-content:center; gap:5px;
+  width:24px; box-sizing:content-box; min-height:20px; padding:12px 10px; margin:-12px -10px;
+  /* el dibujo sigue midiendo 24x18, pero el area que responde al dedo
+     pasa a 44x44, que es el minimo para no tener que apuntar */ }
 .nav-toggle span{ height:2px; background:var(--ink); border-radius:2px; }
 
 .btn{
