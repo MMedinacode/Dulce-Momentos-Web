@@ -173,7 +173,9 @@
       <div class="review-card review-cta">
         <div class="review-stars" style="opacity:.3">★★★★★</div>
         <p class="review-quote">Todavía nos queda espacio para una historia más. Si ya nos visitaste, cuéntanos cómo te fue.</p>
-        <a href="https://www.google.com/maps/search/?api=1&query=Dulces+Momentos+Av.+Olimpo+355+Maipu" target="_blank" rel="noopener" class="text-link" style="margin-top:0">Dejar una reseña en Google
+        <!-- Place ID real confirmado el 09-09-2026: ahora abre directo el
+             formulario de reseña del negocio, no una búsqueda. -->
+        <a href="https://search.google.com/local/writereview?placeid=0x9662dddc324a09e5:0xd1fed11cec3e3d17" target="_blank" rel="noopener" class="text-link" style="margin-top:0">Dejar una reseña en Google
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -237,11 +239,19 @@
         </button>
       </div>
       <div class="map-embed">
-        <!-- Sin Place ID confirmado del negocio: mapa embebido por búsqueda de nombre + dirección.
-             Reemplazar src por https://www.google.com/maps?q=place_id:EL_PLACE_ID&z=17&output=embed
-             en cuanto se confirme el Place ID real (ver Prompt Maestro, sección 8). -->
-        <iframe src="https://www.google.com/maps?q=Dulces+Momentos+Av.+Olimpo+355,+Maipú,+Región+Metropolitana,+Chile&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de Dulces Momentos, Av. Olimpo 355, Maipú"></iframe>
+        <!-- Place ID real confirmado en la ficha "Dulces Momentos caffé" de
+             Google Maps (09-09-2026): 0x9662dddc324a09e5:0xd1fed11cec3e3d17,
+             coordenadas -33.52395, -70.7753678. El embed marca el pin del
+             local, no solo la dirección. -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.0!2d-70.7753678!3d-33.52395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662dddc324a09e5%3A0xd1fed11cec3e3d17!2sDulces%20Momentos%20caff%C3%A9!5e0!3m2!1ses-419!2scl!4v1789005230000!5m2!1ses-419!2scl" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" title="Mapa de Dulces Momentos, Av. Olimpo 355, Maipú"></iframe>
       </div>
+      <!-- Segundo acceso al formulario de reseña, bajo el mapa. Clase propia
+           para no chocar con .review-cta de la pestaña Reseñas. -->
+      <p class="map-review-cta">
+        <a href="https://search.google.com/local/writereview?placeid=0x9662dddc324a09e5:0xd1fed11cec3e3d17" target="_blank" rel="noopener">
+          ¿Nos visitaste? Déjanos tu reseña en Google
+        </a>
+      </p>
     </div>
   </div>
 </section>

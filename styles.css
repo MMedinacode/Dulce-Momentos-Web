@@ -288,3 +288,24 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
   html{ scroll-behavior:auto; }
   .product-card:hover .product-photo img{ transform:none; }
 }
+
+/* Botón "deja tu reseña" bajo el mapa — usa el rosado del muro floral real.
+   Clase propia: .review-cta ya existe en la pestaña Reseñas con otro diseño. */
+.map-review-cta{
+  margin: 14px 0 0;
+  text-align: center;
+}
+.map-review-cta a{
+  display: inline-block;
+  padding: 11px 22px;
+  border: 1.5px solid var(--bloom);
+  border-radius: var(--radius-full);
+  color: var(--brand-brown);
+  font-family: var(--font-sans);
+  font-size: .88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease, transform .12s ease;
+}
+.map-review-cta a:hover{ background: var(--bloom); color: var(--paper); }
+.map-review-cta a:active{ transform: scale(.97); }
