@@ -27,7 +27,9 @@
 <meta property="og:title" content="Dulces Momentos · Pastelería y Café en El Olimpo, Maipú">
 <meta property="og:description" content="Dulces Momentos. Momentos dulces, hechos para quedarse.">
 <meta property="og:url" content="https://mmedinacode.github.io/Dulce-Momentos-Web/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://mmedinacode.github.io/Dulce-Momentos-Web/assets/hero-patio-noche.png">
+<meta property="og:image:alt" content="Dulces Momentos">
+<meta name="twitter:card" content="summary_large_image">
 <!--
   ============================================================
   PROTOTIPO BETA — DULCES MOMENTOS
@@ -35,12 +37,19 @@
   de JS, dividido en 3 archivos (index.html, styles.css, script.js).
 
   📋 DATOS FALTANTES / NO CONFIRMADOS:
-  - Fotos de la Carta: siguen siendo de stock (Unsplash), no fotos
+  - Fotos de la Carta: CORREGIDO 11-09-2026, ya no hay stock. Se bajaron 4 fotos
+    reales de su ficha de Google Maps (tabla de sandwich con jugos, waffles con
+    frutas y smoothies, el muro de flores del interior y un servicio de té) y se
+    conectaron las que calzan con productos de la carta; el resto de los productos
+    queda sin foto, que el módulo carta-fotos.js resuelve con una ilustración.
+  - (Texto anterior de esta nota) Fotos de la Carta: eran de stock (Unsplash), no fotos
     reales de los productos del local.
   - Se recibió una foto con menores identificables (grupo de niños
     en la sala temática); no se usa en el sitio hasta confirmar
     autorización de uso comercial de los padres.
-  - Carta y precios: de ejemplo, a confirmar con el local.
+  - Precios: CORREGIDO 11-09-2026. Antes la carta mostraba 12 precios "de
+    ejemplo" inventados en la página pública de un negocio real; ahora todos
+    dicen "Consultar". Los productos y categorías sí son reales.
   - Solo se encontraron 2 reseñas reales; se deja un tercer espacio
     como llamado a la acción en vez de inventar una reseña.
   - Sin línea telefónica confirmada: Instagram es el único canal.
@@ -166,8 +175,9 @@
     <div class="eyebrow"><span class="divider-mark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-brown)" stroke-width="1.4"><path d="M4 19h16M6 19V7l6-4 6 4v12"/></svg></span>
       <h2 class="section-title">Nuestra carta</h2>
     </div>
-    <!-- PRECIOS DE EJEMPLO: Confirmar carta real y precios exactos con el cliente antes de la propuesta final -->
-    <p class="menu-note">* Productos y precios referenciales, pendientes de confirmar con el local</p>
+    <!-- Corregido 11-09-2026: antes había 12 precios "de ejemplo" inventados.
+         Ahora todos dicen "Consultar" hasta tener una fuente real. -->
+    <p class="menu-note">* Los productos son reales (de su pizarra y su vitrina); los precios hay que consultarlos en el local, porque no los publican en ningún canal.</p>
     <div id="catFilters" class="menu-cats"></div>
     <div id="productGrid" class="menu-grid"></div>
   </div>
@@ -256,10 +266,16 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
           <p><a href="https://instagram.com/dulces.momentos.caffe" target="_blank" rel="noopener" style="text-decoration:underline">@dulces.momentos.caffe</a><br><span style="opacity:.55;font-size:.85em">Por ahora sin línea telefónica — Instagram es el canal de contacto principal.</span></p>
         </div>
-        <button class="btn btn-primary" style="margin-top:8px" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Dulces+Momentos+Av.+Olimpo+355+Maipu','_blank')">
-          Cómo llegar
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:8px">
+          <button class="btn btn-primary" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Dulces+Momentos+Av.+Olimpo+355+Maipu','_blank')">
+            Cómo llegar
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <button class="btn btn-primary" onclick="window.open('https://waze.com/ul?ll=-33.52395,-70.7753678&navigate=yes','_blank')">
+            Ir con Waze
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
       </div>
       <div class="map-embed">
         <!-- Place ID real confirmado en la ficha "Dulces Momentos caffé" de

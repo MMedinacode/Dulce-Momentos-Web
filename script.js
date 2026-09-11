@@ -19,28 +19,34 @@ navToggle.addEventListener('click', () => tabsNav.classList.toggle('open'));
 showTab('inicio');
 
 /* ===================== DATOS DEL CATÁLOGO =====================
-   PRECIOS DE EJEMPLO: Confirmar carta real con el cliente antes de
-   la propuesta final. Categorías tomadas del menú real fotografiado
-   en el local (pizarra de bebidas) y de la vitrina de pastelería. */
+   SIN PRECIOS INVENTADOS (corregido 11-09-2026). Antes esta carta
+   mostraba 12 precios "de ejemplo" en la página pública de un negocio
+   real — va contra la regla del portafolio de no inventar datos, así
+   que todos pasan a "Consultar" hasta tener una fuente confirmada.
+   Las categorías y los productos SÍ son reales: salen del menú
+   fotografiado en el local (pizarra de bebidas) y de su vitrina.
+   Las fotos de stock también se sacaron: quedan solo fotos reales
+   del local donde calzan, y el resto sin foto (carta-fotos.js dibuja
+   una ilustración cuando no hay imagen). */
 const CATEGORIES = ["Todos","Pasteles y Tortas","Postres individuales","Bebidas frías","Bebidas calientes","Opciones saladas"];
 
 const PRODUCTS = [
-  {id:1, name:"Torta de chocolate", cat:"Pasteles y Tortas", price:4500, desc:"Bizcocho húmedo de chocolate con ganache, porción individual.", photo:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop"},
-  {id:2, name:"Cheesecake de limón", cat:"Pasteles y Tortas", price:4200, desc:"Base crocante, relleno cremoso y toque cítrico fresco.", photo:"https://images.unsplash.com/photo-1524351199678-941a58a3df50?q=80&w=800&auto=format&fit=crop"},
-  {id:3, name:"Milhoja artesanal", cat:"Pasteles y Tortas", price:3900, desc:"Capas crujientes de hojaldre con manjar y crema pastelera.", photo:"https://images.unsplash.com/photo-1519676867240-f03562e64548?q=80&w=800&auto=format&fit=crop"},
-  {id:4, name:"Macarons (caja x4)", cat:"Postres individuales", price:3500, desc:"Selección de sabores del día, hechos en casa.", photo:"https://images.unsplash.com/photo-1569864358642-9d1684040f43?q=80&w=800&auto=format&fit=crop"},
-  {id:5, name:"Dona rellena", cat:"Postres individuales", price:2200, desc:"Masa esponjosa con glaseado y relleno a elección.", photo:"https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=800&auto=format&fit=crop"},
-  {id:6, name:"Frappuccino clásico", cat:"Bebidas frías", price:3800, desc:"Base de café frío batido con hielo y crema.", photo:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=800&auto=format&fit=crop"},
-  {id:7, name:"Smoothie de frutos rojos", cat:"Bebidas frías", price:3600, desc:"Frutas naturales licuadas, sin azúcar añadida.", photo:"https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=800&auto=format&fit=crop"},
-  {id:8, name:"Piña colada sin alcohol", cat:"Bebidas frías", price:3900, desc:"Piña, coco y hielo, versión familiar del clásico.", photo:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=800&auto=format&fit=crop"},
-  {id:9, name:"Milkshake de vainilla", cat:"Bebidas frías", price:3700, desc:"Cremoso, servido con crema batida.", photo:"https://images.unsplash.com/photo-1541658016709-82535e94bc69?q=80&w=800&auto=format&fit=crop"},
-  {id:10, name:"Matcha latte", cat:"Bebidas calientes", price:3400, desc:"Té matcha ceremonial con leche a elección.", photo:"https://images.unsplash.com/photo-1515823064-d6e0c04616a7?q=80&w=800&auto=format&fit=crop"},
-  {id:11, name:"Café de especialidad", cat:"Bebidas calientes", price:2600, desc:"Espresso, americano o café con leche, a elección.", photo:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop"},
-  {id:12, name:"Sandwich de la casa", cat:"Opciones saladas", price:3200, desc:"Pan artesanal con ingredientes frescos del día.", photo:"https://images.unsplash.com/photo-1481070555726-e2fe8357725c?q=80&w=800&auto=format&fit=crop"},
+  {id:1, name:"Torta de chocolate", cat:"Pasteles y Tortas", price:null, desc:"Bizcocho húmedo de chocolate con ganache, porción individual.", photo:null},
+  {id:2, name:"Cheesecake de limón", cat:"Pasteles y Tortas", price:null, desc:"Base crocante, relleno cremoso y toque cítrico fresco.", photo:null},
+  {id:3, name:"Milhoja artesanal", cat:"Pasteles y Tortas", price:null, desc:"Capas crujientes de hojaldre con manjar y crema pastelera.", photo:null},
+  {id:4, name:"Macarons (caja x4)", cat:"Postres individuales", price:null, desc:"Selección de sabores del día, hechos en casa.", photo:null},
+  {id:5, name:"Dona rellena", cat:"Postres individuales", price:null, desc:"Masa esponjosa con glaseado y relleno a elección.", photo:null},
+  {id:6, name:"Frappuccino clásico", cat:"Bebidas frías", price:null, desc:"Base de café frío batido con hielo y crema.", photo:null},
+  {id:7, name:"Smoothie de frutos rojos", cat:"Bebidas frías", price:null, desc:"Frutas naturales licuadas, sin azúcar añadida.", photo:"fotos/waffles-frutas.jpg"},
+  {id:8, name:"Piña colada sin alcohol", cat:"Bebidas frías", price:null, desc:"Piña, coco y hielo, versión familiar del clásico.", photo:null},
+  {id:9, name:"Milkshake de vainilla", cat:"Bebidas frías", price:null, desc:"Cremoso, servido con crema batida.", photo:null},
+  {id:10, name:"Matcha latte", cat:"Bebidas calientes", price:null, desc:"Té matcha ceremonial con leche a elección.", photo:null},
+  {id:11, name:"Café de especialidad", cat:"Bebidas calientes", price:null, desc:"Espresso, americano o café con leche, a elección.", photo:null},
+  {id:12, name:"Sandwich de la casa", cat:"Opciones saladas", price:null, desc:"Pan artesanal con ingredientes frescos del día.", photo:"fotos/tabla-sandwich.jpg"},
 ];
 
 let activeCat = "Todos";
-const money = n => "$" + n.toLocaleString("es-CL");
+const money = n => (n === null || n === undefined) ? "Consultar" : "$" + n.toLocaleString("es-CL");
 
 function renderFilters(){
   const wrap = document.getElementById("catFilters");
@@ -57,7 +63,7 @@ function renderProducts(){
   const list = activeCat==="Todos" ? PRODUCTS : PRODUCTS.filter(p=>p.cat===activeCat);
   grid.innerHTML = list.map(p => `
     <button type="button" class="product-card" data-id="${p.id}">
-      <div class="product-photo"><img src="${p.photo}" alt="${p.name}"></div>
+      <div class="product-photo">${p.photo ? `<img src="${p.photo}" alt="${p.name}">` : ''}</div>
       <div class="product-row">
         <h4>${p.name}</h4>
         <span class="product-price">${money(p.price)}</span>
@@ -75,7 +81,9 @@ renderProducts();
 const modalOverlay = document.getElementById("productModal");
 function openModal(id){
   const p = PRODUCTS.find(x=>x.id===id);
-  document.getElementById("modalPhoto").style.backgroundImage = `url('${p.photo}')`;
+  const mp = document.getElementById("modalPhoto");
+  mp.style.backgroundImage = p.photo ? `url('${p.photo}')` : 'none';
+  mp.hidden = !p.photo;
   document.getElementById("modalName").textContent = p.name;
   document.getElementById("modalDesc").textContent = p.desc;
   document.getElementById("modalPrice").textContent = money(p.price);
