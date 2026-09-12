@@ -42,6 +42,9 @@ const PRODUCTS = [
   {id:9, name:"Milkshake de vainilla", cat:"Bebidas frías", price:null, desc:"Cremoso, servido con crema batida.", photo:null},
   {id:10, name:"Matcha latte", cat:"Bebidas calientes", price:null, desc:"Té matcha ceremonial con leche a elección.", photo:null},
   {id:11, name:"Café de especialidad", cat:"Bebidas calientes", price:null, desc:"Espresso, americano o café con leche, a elección.", photo:null},
+  /* El té sale de una foto suya: tetera de vidrio servida en mesa, con su
+     propio posavasos. No es un producto inventado, está fotografiado. */
+  {id:13, name:"Té en tetera", cat:"Bebidas calientes", price:null, desc:"Servido en tetera de vidrio para compartir.", photo:"fotos/tea-time.jpg"},
   {id:12, name:"Sandwich de la casa", cat:"Opciones saladas", price:null, desc:"Pan artesanal con ingredientes frescos del día.", photo:"fotos/tabla-sandwich.jpg"},
 ];
 
